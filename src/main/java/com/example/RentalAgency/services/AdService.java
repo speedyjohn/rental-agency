@@ -24,12 +24,16 @@ public class AdService {
         return adRepository.findTop4ByOrderByViewsDesc();
     }
 
-    public Ad saveAd(Ad ad) throws IOException {
+    public Ad saveAd(Ad ad) {
         return adRepository.save(ad);
     }
 
     public Ad getAdById(Long id) {
         return adRepository.findById(id).orElse(null);
+    }
+
+    public List<Ad> getAdsByCategory(Long id) {
+        return adRepository.findAdsByCategoryId(id);
     }
 
 

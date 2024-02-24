@@ -2,7 +2,7 @@
 <#include "../layouts/main.ftlh">
 <#macro content>
 
-
+    <@macros.index/>
 
 </#macro>
 

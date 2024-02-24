@@ -22,7 +22,7 @@ public class Comment {
     @Column(name = "text", columnDefinition = "text")
     private String text;
     @ManyToOne
-    @JoinColumn(name = "ad_id", nullable = false)
+    @JoinColumn(name = "ad_id")
     @JsonBackReference
     private Ad ad;
 }

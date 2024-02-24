@@ -47,8 +47,12 @@ public class Ad {
     @JsonManagedReference
     private List<Comment> comments;
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "category_id")
     @JsonBackReference
-    @ColumnDefault("0")
     private Category category;
+    @OneToMany(mappedBy = "ad")
+    @JsonManagedReference
+    private List<Image> images;
+    @Transient
+    private String imagePath;
 }

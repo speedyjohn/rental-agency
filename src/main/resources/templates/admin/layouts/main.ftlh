@@ -24,7 +24,7 @@
     <body class="loading" data-layout-color="light" data-layout-mode="default" data-layout-size="fluid"
           data-topbar-color="light" data-leftbar-position="fixed" data-leftbar-color="light" data-leftbar-size='default'
           data-sidebar-user='true'>
-
+    <script src="/static/admin/libs/jquery/jquery.min.js"></script>
     <div class="wrapper">
         <@macros.sidebar/>
         <@macros.navbar/>
@@ -38,7 +38,6 @@
     </div>
 
     <!-- Vendor -->
-    <script src="/static/admin/libs/jquery/jquery.min.js"></script>
     <script src="/static/admin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/static/admin/libs/simplebar/simplebar.min.js"></script>
     <script src="/static/admin/libs/node-waves/waves.min.js"></script>

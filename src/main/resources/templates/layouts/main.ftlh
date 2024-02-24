@@ -43,6 +43,7 @@
 		<script src="/static/js/vendor/modernizr-3.11.2.min.js"></script>
 	</head>
 	<body>
+
 		<!-- WRAPPER START -->
 		<div class="wrapper">
 
@@ -68,8 +69,8 @@
 		<!-- jquery-ui js -->
 		<script src="/static/js/jquery-ui.min.js"></script>
 		<!-- jquery.nivo.slider js -->
-		<script src="/lib/js/jquery.nivo.slider.js"></script>
-		<script src="/lib/home.js"></script>
+		<script src="/static/lib/js/jquery.nivo.slider.js"></script>
+		<script src="/static/lib/home.js"></script>
 		<!-- jquery.nicescroll.min js -->
 		<script src="/static/js/jquery.nicescroll.min.js"></script>
 		<!-- countdon.min js -->

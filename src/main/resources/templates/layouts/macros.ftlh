@@ -1,28 +1,4 @@
 <#macro header>
-    <!-- Mobile-header-top Start -->
-    <div class="mobile-header-top d-block d-md-none">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <!-- header-search-mobile start -->
-                    <div class="header-search-mobile">
-                        <div class="table">
-                            <div class="table-cell">
-                                <ul>
-                                    <li><a class="search-open" href="#"><i class="zmdi zmdi-search"></i></a></li>
-                                    <li><a href="login.html"><i class="zmdi zmdi-lock"></i></a></li>
-                                    <li><a href="my-account.html"><i class="zmdi zmdi-account"></i></a></li>
-                                    <li><a href="wishlist.html"><i class="zmdi zmdi-favorite"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- header-search-mobile start -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Mobile-header-top End -->
     <!-- HEADER-AREA START -->
     <header id="sticky-menu" class="header">
         <div class="header-area">
@@ -180,7 +156,7 @@
                                 <div class="single-product">
                                     <div class="product-img">
                                         <span class="pro-price-2">$ ${ad.price}</span>
-                                        <a href="single-product.html"><img src="/static/img/product/1.jpg" alt="" /></a>
+                                        <a href="/ad/${ad.id!}"><img src="${ad.imagePath!}" alt="" /></a>
                                     </div>
                                     <div class="product-info clearfix text-center">
                                         <div class="fix">
@@ -227,7 +203,7 @@
                             <ul class="footer-menu">
                                 <li><a href="/"><i class="zmdi zmdi-dot-circle"></i>Index</a></li>
                                 <li><a href="/ads"><i class="zmdi zmdi-dot-circle"></i>Shop</a></li>
-                                <li><a href="/ad/2"><i class="zmdi zmdi-dot-circle"></i>Single ad page</a></li>
+                                <li><a href="/ad/54"><i class="zmdi zmdi-dot-circle"></i>Single ad page</a></li>
                             </ul>
                         </div>
                     </div>
@@ -267,7 +243,7 @@
                             <div class="modal-product">
                                 <div class="product-images">
                                     <div class="main-image images">
-                                        <img alt="#" src="/static/img/product/quickview-photo.jpg"/>
+                                        <img alt="#" src="${ad.imagePath!}"/>
                                     </div>
                                 </div><!-- .product-images -->
 
@@ -281,7 +257,7 @@
                                         <hr />
                                     </div>
                                     <div class="quick-desc">${ad.description}</div>
-                                    <a href="shop.html" class="see-all">See more</a>
+                                    <a href="/ad/${ad.id}" class="see-all">See more</a>
                                 </div><!-- .product-info -->
                             </div><!-- .modal-product -->
                         </div><!-- .modal-body -->
@@ -306,7 +282,7 @@
                         </div>
                         <div class="breadcumbs pb-15">
                             <ul>
-                                <li><a href="#">Home</a></li>
+                                <li><a href="/">Home</a></li>
                                 <li>Shop</li>
                             </ul>
                         </div>
@@ -340,49 +316,11 @@
                                         </div>
                                         <div id="cat-treeview"  class="widget-info product-cat boxscrol2">
                                             <ul>
-                                                <li><span>Chair</span>
+                                                <li><a href="/ads"><span>All</span></a>
                                                     <ul>
-                                                        <li><a href="#">T-Shirts</a></li>
-                                                        <li><a href="#">Striped Shirts</a></li>
-                                                        <li><a href="#">Half Shirts</a></li>
-                                                        <li><a href="#">Formal Shirts</a></li>
-                                                        <li><a href="#">Bilazers</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="open"><span>Furniture</span>
-                                                    <ul>
-                                                        <li><a href="#">Men Bag</a></li>
-                                                        <li><a href="#">Shoes</a></li>
-                                                        <li><a href="#">Watch</a></li>
-                                                        <li><a href="#">T-shirt</a></li>
-                                                        <li><a href="#">Shirt</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><span>Accessories</span>
-                                                    <ul>
-                                                        <li><a href="#">T-Shirts</a></li>
-                                                        <li><a href="#">Striped Shirts</a></li>
-                                                        <li><a href="#">Half Shirts</a></li>
-                                                        <li><a href="#">Formal Shirts</a></li>
-                                                        <li><a href="#">Bilazers</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><span>Top Brands</span>
-                                                    <ul>
-                                                        <li><a href="#">T-Shirts</a></li>
-                                                        <li><a href="#">Striped Shirts</a></li>
-                                                        <li><a href="#">Half Shirts</a></li>
-                                                        <li><a href="#">Formal Shirts</a></li>
-                                                        <li><a href="#">Bilazers</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><span>Jewelry</span>
-                                                    <ul>
-                                                        <li><a href="#">T-Shirts</a></li>
-                                                        <li><a href="#">Striped Shirts</a></li>
-                                                        <li><a href="#">Half Shirts</a></li>
-                                                        <li><a href="#">Formal Shirts</a></li>
-                                                        <li><a href="#">Bilazers</a></li>
+                                                        <#list categories as category>
+                                                            <li><a href="/ads/${category.name}">${category.name}</a></li>
+                                                        </#list>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -390,87 +328,6 @@
                                     </aside>
                                     <!-- Widget-categories end -->
                                 </div>
-                            </div>
-                            <!-- Categories end -->
-                            <!-- Price start -->
-                            <div class="dropdown floatleft">
-                                <button class="option-btn" >
-                                    Price
-                                </button>
-                                <div class="dropdown-menu dropdown-width" >
-                                    <!-- Shop-Filter start -->
-                                    <aside class="widget shop-filter">
-                                        <div class="widget-title">
-                                            <h4>Price</h4>
-                                        </div>
-                                        <div class="widget-info">
-                                            <div class="price_filter">
-                                                <div class="price_slider_amount">
-                                                    <input type="submit"  value="You range :"/>
-                                                    <input type="text" id="amount" name="price"  placeholder="Add Your Price" />
-                                                </div>
-                                                <div id="slider-range"></div>
-                                            </div>
-                                        </div>
-                                    </aside>
-                                    <!-- Shop-Filter end -->
-                                </div>
-                            </div>
-                            <!-- Price end -->
-                            <!-- Color start -->
-                            <div class="dropdown floatleft">
-                                <button class="option-btn">
-                                    Color
-                                </button>
-                                <div class="dropdown-menu dropdown-width" >
-                                    <!-- Widget-Color start -->
-                                    <aside class="widget widget-color">
-                                        <div class="widget-title">
-                                            <h4>Color</h4>
-                                        </div>
-                                        <div class="widget-info color-filter clearfix">
-                                            <ul>
-                                                <li><a href="#"><span class="color color-1"></span>LightSalmon<span class="count">12</span></a></li>
-                                                <li><a href="#"><span class="color color-2"></span>Dark Salmon<span class="count">20</span></a></li>
-                                                <li><a href="#"><span class="color color-3"></span>Tomato<span class="count">59</span></a></li>
-                                                <li><a class="active" href="#"><span class="color color-4"></span>Deep Sky Blue<span class="count">45</span></a></li>
-                                                <li><a href="#"><span class="color color-5"></span>Electric Purple<span class="count">78</span></a></li>
-                                                <li><a href="#"><span class="color color-6"></span>Atlantis<span class="count">10</span></a></li>
-                                                <li><a href="#"><span class="color color-7"></span>Deep Lilac<span class="count">15</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </aside>
-                                    <!-- Widget-Color end -->
-                                </div>
-                            </div>
-                            <!-- Color end -->
-                            <!-- Size start -->
-                            <div class="dropdown floatleft">
-                                <button class="option-btn">
-                                    Size
-                                </button>
-                                <div class="dropdown-menu dropdown-width" >
-                                    <!-- Widget-Size start -->
-                                    <aside class="widget widget-size">
-                                        <div class="widget-title">
-                                            <h4>Size</h4>
-                                        </div>
-                                        <div class="widget-info size-filter clearfix">
-                                            <ul>
-                                                <li><a href="#">M</a></li>
-                                                <li><a class="active" href="#">S</a></li>
-                                                <li><a href="#">L</a></li>
-                                                <li><a href="#">SL</a></li>
-                                                <li><a href="#">XL</a></li>
-                                            </ul>
-                                        </div>
-                                    </aside>
-                                    <!-- Widget-Size end -->
-                                </div>
-                            </div>
-                            <!-- Size end -->
-                            <div class="showing text-end">
-                                <p class="mb-0 d-none d-md-block">Showing 01-09 of 17 Results</p>
                             </div>
                         </div>
                     </div>
@@ -480,16 +337,14 @@
                                 <div class="col-xl-3 col-md-4">
                                     <div class="single-product">
                                         <div class="product-img">
-                                            <span class="pro-price-2">$ ${ad.price}</span>
-                                            <a href="single-product.html"><img src="/static/img/product/6.jpg" alt="" /></a>
+                                            <span class="pro-price-2" style="color: black; ">$ ${ad.price!}</span>
+                                            <a href="/ad/${ad.id!}"><img src="${ad.imagePath!}" alt="" /></a>
                                         </div>
                                         <div class="product-info clearfix text-center">
                                             <div class="fix">
                                                 <h4 class="post-title"><a href="/ad/${ad.id}">${ad.title}</a></h4>
                                             </div>
-                                            <div>
-                                                <p>${ad.description}</p>
-                                            </div>
+                                            <div><p>${ad.description}</p></div>
                                             <div class="product-action clearfix">
                                                 <a href="#" data-bs-toggle="modal" data-bs-target="#productModal${ad.id}" title="Quick View"><i class="zmdi zmdi-zoom-in"></i></a>
                                             </div>
@@ -516,36 +371,14 @@
                     <div class="single-product clearfix">
                         <!-- Single-pro-slider Big-photo start -->
                         <div class="single-pro-slider single-big-photo view-lightbox slider-for">
-                            <div>
-                                <img src="/static/img/single-product/medium/1.jpg" alt="" />
-                                <a class="view-full-screen" href="img/single-product/large/1.jpg"  data-lightbox="roadtrip" data-title="My caption">
-                                    <i class="zmdi zmdi-zoom-in"></i>
-                                </a>
-                            </div>
-                            <div>
-                                <img src="/static/img/single-product/medium/2.jpg" alt="" />
-                                <a class="view-full-screen" href="img/single-product/large/2.jpg"  data-lightbox="roadtrip" data-title="My caption">
-                                    <i class="zmdi zmdi-zoom-in"></i>
-                                </a>
-                            </div>
-                            <div>
-                                <img src="/static/img/single-product/medium/3.jpg" alt="" />
-                                <a class="view-full-screen" href="img/single-product/large/3.jpg"  data-lightbox="roadtrip" data-title="My caption">
-                                    <i class="zmdi zmdi-zoom-in"></i>
-                                </a>
-                            </div>
-                            <div>
-                                <img src="/static/img/single-product/medium/4.jpg" alt="" />
-                                <a class="view-full-screen" href="img/single-product/large/4.jpg"  data-lightbox="roadtrip" data-title="My caption">
-                                    <i class="zmdi zmdi-zoom-in"></i>
-                                </a>
-                            </div>
-                            <div>
-                                <img src="/static/img/single-product/medium/5.jpg" alt="" />
-                                <a class="view-full-screen" href="img/single-product/large/5.jpg"  data-lightbox="roadtrip" data-title="My caption">
-                                    <i class="zmdi zmdi-zoom-in"></i>
-                                </a>
-                            </div>
+                            <#list images as image>
+                                <div>
+                                    <img  style="height: 400px; width: 400px; object-fit: cover; object-position: 50% 50%;" src="<#if image.path??>${image.path}<#else></#if>" alt="" />
+                                    <a class="view-full-screen" href="<#if image.path??>${image.path}<#else></#if>"  data-lightbox="roadtrip" data-title="My caption">
+                                        <i class="zmdi zmdi-zoom-in"></i>
+                                    </a>
+                                </div>
+                            </#list>
                         </div>
                         <!-- Single-pro-slider Big-photo end -->
                         <div class="product-info">
@@ -560,21 +393,11 @@
                             </div>
                             <!-- Single-pro-slider Small-photo start -->
                             <div class="single-pro-slider single-sml-photo slider-nav">
-                                <div>
-                                    <img src="/static/img/single-product/small/1.jpg" alt="" />
-                                </div>
-                                <div>
-                                    <img src="/static/img/single-product/small/2.jpg" alt="" />
-                                </div>
-                                <div>
-                                    <img src="/static/img/single-product/small/3.jpg" alt="" />
-                                </div>
-                                <div>
-                                    <img src="/static/img/single-product/small/4.jpg" alt="" />
-                                </div>
-                                <div>
-                                    <img src="/static/img/single-product/small/5.jpg" alt="" />
-                                </div>
+                                <#list images as image>
+                                    <div>
+                                        <img style="height: 200px; width: 200px; object-fit: cover; object-position: 50% 50%;" src="<#if image.path??>${image.path}<#else></#if>" alt="" />
+                                    </div>
+                                </#list>
                             </div>
                             <!-- Single-pro-slider Small-photo end -->
                         </div>

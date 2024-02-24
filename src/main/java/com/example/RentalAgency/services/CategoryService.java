@@ -6,6 +6,7 @@ import com.example.RentalAgency.repositories.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,5 +16,22 @@ public class CategoryService {
 
     public Category getCategoryById(Long id) {
         return categoryRepository.findCategoryById(id);
+    }
+
+    public Category getCategoryByName(String name) {
+        return categoryRepository.findCategoryByName(name);
+    }
+
+    public List<Category> getCategories() {
+        return categoryRepository.findAll();
+    }
+
+
+    public Category saveCategory(Category cat) {
+        return categoryRepository.save(cat);
+    }
+
+    public void deleteCategory(Long id) {
+        categoryRepository.deleteById(id);
     }
 }

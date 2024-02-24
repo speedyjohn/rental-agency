@@ -1,9 +1,11 @@
 package com.example.RentalAgency.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @Table(name = "images")
@@ -15,17 +17,13 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long Id;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "originalFileName")
-    private String originalFileName;
-    @Column(name = "size")
-    private Long size;
-    @Column(name = "contentType")
-    private String contentType;
+    @Column(name = "path")
+    private String path;
+    @ManyToOne
+    @JoinColumn(name = "ad_id")
+    @JsonBackReference
+    private Ad ad;
     @Column(name = "isPreviewImage")
+    @ColumnDefault("false")
     private boolean isPreviewImage;
-
-    @Column(name="bytes")
-    private byte[] bytes;
 }
