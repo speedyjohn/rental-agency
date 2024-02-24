@@ -1,4 +1,4 @@
-package com.example.RentalAgency.controllers;
+package com.example.RentalAgency.controllers.main;
 
 import com.example.RentalAgency.models.Comment;
 import com.example.RentalAgency.services.CommentService;

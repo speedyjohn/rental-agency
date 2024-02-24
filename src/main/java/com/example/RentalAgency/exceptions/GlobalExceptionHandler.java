@@ -1,4 +1,4 @@
-package com.example.RentalAgency.controllers;
+package com.example.RentalAgency.exceptions;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
